@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<!--factorial-->
+<input type="text" id="factorial_input" placeholder="n!" onchange="factorial()">
+<p id="factorial_output">Output here!</p>
+<!--triangle-->
+<input type="text" id="triangle_length" placeholder="do dai canh">
+<input type="text" id="triangle_position" placeholder="goc 1|2|3|4" onchange="triangle()">
+<p id="triangle_output">Print :</p>
+<!--rectangle-->
+<input type="text" id="rect_width" placeholder="width">
+<input type="text" id="rect_height" placeholder="height" onchange="rectangle()">
+<script>
+
+    /*giai thua*/
+    function factorial()
+    {
+        let number=+document.getElementById('factorial_input').value;
+        let fact=1;
+        for(let i=1;i<=number;i++)
+        {
+            fact*=i;
+        }
+        document.getElementById('factorial_output').innerHTML=fact;
+    }
+
+    /*in tam giac vuong*/
+    function triangle()
+    {
+        let x=+document.getElementById('triangle_length').value;
+        let position=+document.getElementById('triangle_position').value;
+        if(position==1)
+        {
+            for(let i=x;i>0;i--)
+            {
+                for(let j=1;j<=i;j++)
+                    document.write('*');
+                document.write('<br>');
+            }
+        }
+        else if(position==2)
+        {
+            for(let i=1;i<x;i++)
+            {
+                for(let j=1;j<=i;j++)
+                    document.write('*');
+                document.write('<br>');
+            }
+        }
+        else if(position==3)
+        {
+            for(let i=1;i<=x;i++)
+            {
+                for(let j=0;j<x-i;j++)
+                    document.write('&nbsp;&nbsp;');
+                for(let j=0;j<i;j++)
+                    document.write('*');
+                document.write('<br>');
+            }
+        }
+        else if(position==4)
+        {
+            for(let i=x;i>0;i--)
+            {
+                for(let j=0;j<x-i;j++)
+                    document.write('&nbsp;&nbsp;');
+                for(let j=0;j<i;j++)
+                    document.write('*');
+                document.write('<br>');
+            }
+        }
+    }
+
+    /*rectangle*/
+    function rectangle()
+    {
+        let width=+document.getElementById('rect_width').value;
+        let height=+document.getElementById('rect_height').value;
+        for(let ih=1;ih<=height;ih++)
+        {
+            document.write('*');
+            if(ih==1||ih==height)
+            {
+                for( let iw=0;iw<width-2;iw++)
+                {
+                    document.write('*');
+                }
+            }
+            else
+            {
+                for( let iw=0;iw<width-2;iw++)
+                {
+                    document.write('&nbsp;&nbsp;')
+                }
+            }
+            document.write('*<br>');
+        }
+    }
+</script>
+</body>
+</html>
